@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Weather Feed</title>
+		<link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+        <link rel='stylesheet' type='text/css' href='../shared/jquery-ui.css'/>
+        <script type='text/javascript' src="../shared/jquery-2.1.0.js"></script>
+        <script type='text/javascript' src='script.js'></script>
+	</head>
+	<body>
+	<h1>Testing Forecast.io Weather API</h1>
+        <button>Get Data</button><br/>
+        <div id="data"></div>
+
+        // <script>
+        // (function(){
+        // 	var weatherAPI = "https://api.forecast.io/forecast/047a228973952d4d1076f8d0f2968744/37.424123,-122.103233";
+        // 	    $.getJSON( weatherAPI, {callback:"callback"}, function( data ) {
+        // 	      var items = [];
+        // 	      $.each( data, function( key, val ) {
+        // 	        items.push( "<li id='" + key + "'>" + val + "</li>" );
+        // 	      });
+        	     
+        // 	      $( "<ul/>", {
+        // 	        "class": "my-new-list",
+        // 	        html: items.join( "" )
+        // 	      }).appendTo( "body" );
+        // 	    });
+        // 	})();
+        // </script>
+
+        <hr/>
+        <h1>Testing getJSON function</h1>
+        <div id="images"></div>
+         
+        <script>
+        (function() {
+          var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+          $.getJSON( flickerAPI, {
+            tags: "mount rainier",
+            tagmode: "any",
+            format: "json"
+          })
+            .done(function( data ) {
+              $.each( data.items, function( i, item ) {
+                $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+                if ( i === 3 ) {
+                  return false;
+                }
+              });
+            });
+        })();
+        </script>
+	</body>
+</html>
