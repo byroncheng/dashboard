@@ -1,5 +1,5 @@
-/* Add your CSS below! */
-input, textarea {
-    border-radius: 5px;
-    border-width:1px;
-}
+/* fonts */
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic);
+
+
+h1, h2, h3, h4, h5, h6, p {font-family: 'Noto Serif', serif;}
