@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     $('#GetWeather').click(function() {
         $.getJSON(weatherAPI + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
-          $('#Weather').html('The temperature is : ' + data.currently.temperature);
+          $('#Weather').html('The temperature is : ' + data.currently.temperature +'<br>The possibility of precipitation is ' + data.currently.precipProbability*100 +'%');
 
         });
     });
