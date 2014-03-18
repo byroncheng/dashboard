@@ -35,18 +35,21 @@ $(document).ready(function() {
 
     $('#ShowData').click(function() {
       $('#Weather').html(
-        'The temperature is : ' + weatherData.currently.temperature
-        +'<br>The possibility of precipitation is '+ weatherData.currently.precipProbability*100
+        'The current temperature is : ' + weatherData.currently.temperature
+        +'<br>The current possibility of precipitation is '+ weatherData.currently.precipProbability*100
         +'%<br>The current conditions are ' + weatherData.currently.icon
-        + getPrecipType()
+        + '<br>' + getPrecipType() + '<br>' + getWeatherAlert() 
         );
     });
 
     function getPrecipType(){
-      if (weatherData.currently.precipIntensity != 0) {return '<br>It is currently ' + weatherData.currently.precipType;}
-      else {return "";}
+      if (typeof weatherData.currently.precipIntensity != 'undefined') {return '<br>The current preciptiation type is ' + weatherData.currently.precipType;}
+      else {return 'It is not precipitating';}
     }
 
-
+    function getWeatherAlert(){
+      if (typeof weatherData.alerts != 'undefined') {return '<div class="alert">' + weatherData.alerts.title + '</div>';}
+      else {return 'No active weather alerts';}
+    }
 
   });
