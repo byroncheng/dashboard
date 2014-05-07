@@ -12,6 +12,7 @@ $(document).ready(function() {
 
     var geoNamesAPI = "http://api.geonames.org/findNearbyPlaceNameJSON?cities=cities1000"
 
+    // Calls geolocation function
     // $('#GetData').click(function(){
       if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(getPosition,showGeoError);
@@ -22,6 +23,7 @@ $(document).ready(function() {
       };
     // });
 
+    // Position getting function using HTML5 Geolocation
     function getPosition(position){
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
@@ -35,6 +37,7 @@ $(document).ready(function() {
       getCity();
     }
 
+    // Reverse geolocation function of city from lat/long using geoNames API
     function getCity(){
       $.getJSON( geoNamesAPI + "&lat=" + latitude + "&lng=" + longitude + "&username=byroncheng", function(data) {
         locationName = data;
@@ -45,7 +48,7 @@ $(document).ready(function() {
       $('#debug').append("<p>exit function getCity</p>");
     }
 
-
+    // Error function for position-getting
     function showGeoError(error)
       {
       switch(error.code) 
@@ -65,7 +68,7 @@ $(document).ready(function() {
         }
       }
 
-    // Manually show weather data
+    // Click handler to manually refresh weather data
     $('#ShowData').click(function() {
         getWeather();
     });
