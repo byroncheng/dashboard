@@ -1,0 +1,2 @@
+# Don't commit json files used for formatting reference
+*.json
