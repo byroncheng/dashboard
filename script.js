@@ -96,7 +96,7 @@ $(document).ready(function() {
 
     // Gets and displays precipitation data
     function getPrecipType(){
-      if ( weatherData.currently.precipIntensity != 0) {return 'The current preciptiation type is ' + weatherData.currently.precipType;}
+      if ( weatherData.currently.precipIntensity != 0) {return 'The current precipitation type is ' + weatherData.currently.precipType;}
       else {return 'It is not precipitating';}
     }
 
